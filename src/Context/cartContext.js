@@ -1,8 +1,10 @@
 import { createContext, useReducer } from "react";
 import {
   ADD_TO_CART,
+  CALCULATE_TOTAL,
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
+  REMOVE_ITEM_FROM_CART,
 } from "../actions/cartActions";
 import cartReducer from "./../reducers/cartReducer";
 
@@ -11,6 +13,7 @@ const initialState = {
   total: {
     items: 0,
     price: 0,
+    discount: 0,
   },
 };
 
@@ -45,13 +48,23 @@ const CartProvider = ({ children }) => {
 
     const item = state.cartItems.filter((item) => item.id === productId)[0];
 
+    if (item.quantity <= 1) {
+      dispatch({ type: REMOVE_ITEM_FROM_CART, payload: productId });
+    }
+
     if (item.quantity > 0) {
       dispatch({ type: DECREASE_QUANTITY, payload: productId });
     }
   };
 
   const calculateTotal = () => {
-    console.log("TOTAL");
+    dispatch({ type: CALCULATE_TOTAL });
+  };
+
+  const removeProduct = (e) => {
+    const productId = e.target.dataset.id;
+
+    dispatch({ type: REMOVE_ITEM_FROM_CART, payload: productId });
   };
 
   return (
@@ -62,6 +75,7 @@ const CartProvider = ({ children }) => {
         increaseQuantity,
         decreaseQuantity,
         calculateTotal,
+        removeProduct,
       }}
     >
       {children}

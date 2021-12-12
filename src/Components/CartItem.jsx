@@ -12,6 +12,7 @@ const CartItem = ({
   image,
   id,
   quantity,
+  discount,
 }) => {
   const { increaseQuantity, decreaseQuantity } = useContext(CartContext);
 
@@ -27,6 +28,7 @@ const CartItem = ({
         <h2>{title}</h2>
         <h2>Brand: {brand}</h2>
         <h2>Price: {price} Rs</h2>
+        <h2>Discount: {discount} Rs</h2>
         <h2>Size: {size}</h2>
         <h2>Sold by: {soldBy}</h2>
 
@@ -39,23 +41,30 @@ const CartItem = ({
       </div>
 
       <div className="right flex">
-        <button onClick={increaseQuantity} data-id={id}>
-          +
-        </button>
+        <div className="btns flex">
+          <button onClick={increaseQuantity} data-id={id}>
+            +
+          </button>
 
-        <span>{quantity}</span>
+          <span>{quantity}</span>
 
-        <button onClick={decreaseQuantity} data-id={id}>
-          -
-        </button>
+          <button onClick={decreaseQuantity} data-id={id}>
+            -
+          </button>
+        </div>
+
+        <button>Remove </button>
+        <button>Save for later </button>
       </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.main`
-  margin: 0px 0 25px 0;
-  justify-content: flex-start;
+  margin: 0px 0 20px 0;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 5px 10px;
 
   .left {
     .image {
@@ -71,7 +80,6 @@ const Wrapper = styled.main`
   }
 
   .middle {
-    margin-left: 40px;
     flex-direction: column;
     align-items: flex-start;
     /* border: 1px solid red; */
@@ -84,16 +92,27 @@ const Wrapper = styled.main`
   }
 
   .right {
-    margin-left: 40px;
+    .btns {
+      margin-bottom: 20px;
 
-    button {
-      font-size: 1.2em;
-      padding: 0px 8px;
-      border-radius: 5px;
+      button {
+        font-size: 1.2em;
+        padding: 0px 8px;
+        border-radius: 5px;
+      }
+
+      span {
+        margin: 0 10px;
+      }
     }
 
-    span {
-      margin: 0 10px;
+    flex-direction: column;
+
+    button {
+      font-size: 1em;
+      padding: 0px 8px;
+      border-radius: 2px;
+      margin-top: 10px;
     }
   }
 `;

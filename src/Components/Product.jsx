@@ -58,10 +58,13 @@ const Wrapper = styled.main`
 
     .cart_btn {
       position: absolute;
-      right: 0;
-      bottom: 0;
+      right: 4px;
+      bottom: 5px;
       padding: 5px 10px;
       border-radius: 5px;
+
+      background-color: #191919;
+      color: white;
     }
   }
 
@@ -75,7 +78,5 @@ const Wrapper = styled.main`
     font-weight: 300;
   }
 `;
-
-const a = styled.div``;
 
 export default Product;
