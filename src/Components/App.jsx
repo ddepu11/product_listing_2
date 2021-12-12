@@ -1,9 +1,17 @@
 import styled from "styled-components";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cart from "../Screen/Cart/Cart";
+import Home from "../Screen/Home/Home";
 
 const App = () => {
   return (
-    <Wrapper>
-      <h2>App</h2>
+    <Wrapper className="container">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Router>
     </Wrapper>
   );
 };
