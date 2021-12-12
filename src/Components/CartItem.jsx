@@ -9,6 +9,7 @@ const CartItem = ({
   idealFor,
   image,
   id,
+  quantity,
 }) => {
   return (
     <Wrapper className="flex">
@@ -33,7 +34,13 @@ const CartItem = ({
         </h2>
       </div>
 
-      <div className="right"></div>
+      <div className="right flex">
+        <button>+</button>
+
+        <span>{quantity}</span>
+
+        <button>-</button>
+      </div>
     </Wrapper>
   );
 };
@@ -65,6 +72,20 @@ const Wrapper = styled.main`
       font-weight: 400;
       font-size: 1.2em;
       margin-bottom: 4px;
+    }
+  }
+
+  .right {
+    margin-left: 40px;
+
+    button {
+      font-size: 1.2em;
+      padding: 0px 8px;
+      border-radius: 5px;
+    }
+
+    span {
+      margin: 0 10px;
     }
   }
 `;

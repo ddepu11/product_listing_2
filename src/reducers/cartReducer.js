@@ -12,7 +12,7 @@ const cartReducer = (state, action) => {
             ...productsData.products.filter(
               (item) => item.id === action.payload
             )[0],
-            quantity: 0,
+            quantity: 1,
           },
         ],
       };
