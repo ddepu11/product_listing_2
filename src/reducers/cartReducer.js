@@ -4,6 +4,8 @@ import {
   INCREASE_QUANTITY,
   CALCULATE_TOTAL,
   REMOVE_ITEM_FROM_CART,
+  SAVE_ITEM_FOR_LATER,
+  REMOVE_ITEM_FROM_SAVED_FOR_LATER,
 } from "../actions/cartActions";
 import productsData from "../data/products.json";
 
@@ -14,6 +16,20 @@ const cartReducer = (state, action) => {
         ...state,
         cartItems: [
           ...state.cartItems,
+          {
+            ...productsData.products.filter(
+              (item) => item.id === action.payload
+            )[0],
+            quantity: 1,
+          },
+        ],
+      };
+
+    case SAVE_ITEM_FOR_LATER:
+      return {
+        ...state,
+        savedItems: [
+          ...state.savedItems,
           {
             ...productsData.products.filter(
               (item) => item.id === action.payload
@@ -54,21 +70,6 @@ const cartReducer = (state, action) => {
       };
 
     case CALCULATE_TOTAL:
-      // console.log(
-      //   state.cartItems.reduce(
-      //     (total, item) => {
-      //       return {
-      //         price: total.price + item.quantity * item.price,
-      //         items: total.items + item.quantity,
-      //       };
-      //     },
-      //     {
-      //       price: 0,
-      //       items: 0,
-      //     }
-      //   )
-      // );
-
       return {
         ...state,
         total: state.cartItems.reduce(
@@ -94,6 +95,15 @@ const cartReducer = (state, action) => {
           ...state.cartItems.filter((item) => item.id !== action.payload),
         ],
       };
+
+    case REMOVE_ITEM_FROM_SAVED_FOR_LATER:
+      return {
+        ...state,
+        savedItems: [
+          ...state.savedItems.filter((item) => item.id !== action.payload),
+        ],
+      };
+
     default:
       return { ...state };
   }

@@ -5,6 +5,8 @@ import {
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
   REMOVE_ITEM_FROM_CART,
+  REMOVE_ITEM_FROM_SAVED_FOR_LATER,
+  SAVE_ITEM_FOR_LATER,
 } from "../actions/cartActions";
 import cartReducer from "./../reducers/cartReducer";
 
@@ -15,6 +17,8 @@ const initialState = {
     price: 0,
     discount: 0,
   },
+
+  savedItems: [],
 };
 
 const CartContext = createContext();
@@ -67,6 +71,26 @@ const CartProvider = ({ children }) => {
     dispatch({ type: REMOVE_ITEM_FROM_CART, payload: productId });
   };
 
+  const saveItemForLater = (e) => {
+    const productId = e.target.dataset.id;
+    dispatch({ type: REMOVE_ITEM_FROM_CART, payload: productId });
+
+    dispatch({ type: SAVE_ITEM_FOR_LATER, payload: productId });
+  };
+
+  const removeFromSaved = (e) => {
+    const productId = e.target.dataset.id;
+
+    const doesItemAlreadyExists = state.cartItems.filter(
+      (item) => item.id === productId
+    );
+
+    doesItemAlreadyExists.length === 0 &&
+      dispatch({ type: ADD_TO_CART, payload: productId });
+
+    dispatch({ type: REMOVE_ITEM_FROM_SAVED_FOR_LATER, payload: productId });
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -76,6 +100,8 @@ const CartProvider = ({ children }) => {
         decreaseQuantity,
         calculateTotal,
         removeProduct,
+        saveItemForLater,
+        removeFromSaved,
       }}
     >
       {children}

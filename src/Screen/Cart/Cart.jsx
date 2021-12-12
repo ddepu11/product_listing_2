@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import CartItem from "../../Components/CartItem";
 
 const Cart = () => {
-  const { cartItems, calculateTotal, total } = useContext(CartContext);
+  const { cartItems, calculateTotal, total, savedItems } =
+    useContext(CartContext);
 
   useEffect(() => {
     calculateTotal();
@@ -16,6 +17,10 @@ const Cart = () => {
       <div className="header flex">
         <h3>My Cart ({total.items}) </h3>
         <Link to="/">Go to Home</Link>
+
+        {savedItems.length > 0 && (
+          <Link to="/save-for-later">Saved for later</Link>
+        )}
       </div>
 
       <div className="hero flex">

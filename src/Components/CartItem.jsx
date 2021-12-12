@@ -13,8 +13,15 @@ const CartItem = ({
   id,
   quantity,
   discount,
+  fromSavedItems,
 }) => {
-  const { increaseQuantity, decreaseQuantity } = useContext(CartContext);
+  const {
+    increaseQuantity,
+    decreaseQuantity,
+    removeProduct,
+    saveItemForLater,
+    removeFromSaved,
+  } = useContext(CartContext);
 
   return (
     <Wrapper className="flex">
@@ -41,20 +48,32 @@ const CartItem = ({
       </div>
 
       <div className="right flex">
-        <div className="btns flex">
-          <button onClick={increaseQuantity} data-id={id}>
-            +
+        {!fromSavedItems ? (
+          <>
+            <div className="btns flex">
+              <button onClick={increaseQuantity} data-id={id}>
+                +
+              </button>
+
+              <span>{quantity}</span>
+
+              <button onClick={decreaseQuantity} data-id={id}>
+                -
+              </button>
+            </div>
+
+            <button onClick={removeProduct} data-id={id}>
+              Remove{" "}
+            </button>
+            <button onClick={saveItemForLater} data-id={id}>
+              Save for later{" "}
+            </button>
+          </>
+        ) : (
+          <button className="cart_btn" data-id={id} onClick={removeFromSaved}>
+            Add to Cart
           </button>
-
-          <span>{quantity}</span>
-
-          <button onClick={decreaseQuantity} data-id={id}>
-            -
-          </button>
-        </div>
-
-        <button>Remove </button>
-        <button>Save for later </button>
+        )}
       </div>
     </Wrapper>
   );

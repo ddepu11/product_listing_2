@@ -1,15 +1,21 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Product from "../../Components/Product";
+import { CartContext } from "../../Context/cartContext";
 import productsData from "../../data/products.json";
 
 const Home = () => {
+  const { savedItems } = useContext(CartContext);
+
   return (
     <Wrapper>
       <div className="header flex">
         <h2>All the products</h2>
 
         <Link to="/cart">Cart</Link>
+
+        {savedItems.length > 0 && <Link to="/save-for-later">Saved</Link>}
       </div>
       <div className="flex products">
         {productsData &&
