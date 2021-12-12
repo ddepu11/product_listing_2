@@ -1,10 +1,19 @@
 import { createContext, useReducer } from "react";
-import { ADD_TO_CART } from "../actions/cartActions";
+import {
+  ADD_TO_CART,
+  DECREASE_QUANTITY,
+  INCREASE_QUANTITY,
+} from "../actions/cartActions";
 import cartReducer from "./../reducers/cartReducer";
 
 const initialState = {
   cartItems: [],
+  total: {
+    items: 0,
+    price: 0,
+  },
 };
+
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
@@ -21,8 +30,40 @@ const CartProvider = ({ children }) => {
       dispatch({ type: ADD_TO_CART, payload: productId });
   };
 
+  const increaseQuantity = (e) => {
+    const productId = e.target.dataset.id;
+
+    const item = state.cartItems.filter((item) => item.id === productId)[0];
+
+    if (item.quantity < 10) {
+      dispatch({ type: INCREASE_QUANTITY, payload: productId });
+    }
+  };
+
+  const decreaseQuantity = (e) => {
+    const productId = e.target.dataset.id;
+
+    const item = state.cartItems.filter((item) => item.id === productId)[0];
+
+    if (item.quantity > 0) {
+      dispatch({ type: DECREASE_QUANTITY, payload: productId });
+    }
+  };
+
+  const calculateTotal = () => {
+    console.log("TOTAL");
+  };
+
   return (
-    <CartContext.Provider value={{ ...state, addToCart }}>
+    <CartContext.Provider
+      value={{
+        ...state,
+        addToCart,
+        increaseQuantity,
+        decreaseQuantity,
+        calculateTotal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

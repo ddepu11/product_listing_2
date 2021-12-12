@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { CartContext } from "../../Context/cartContext";
 import { Link } from "react-router-dom";
 import CartItem from "../../Components/CartItem";
 
 const Cart = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, calculateTotal } = useContext(CartContext);
 
-  console.log(cartItems);
+  useEffect(() => {
+    calculateTotal();
+  }, [cartItems]);
 
   return (
     <Wrapper>

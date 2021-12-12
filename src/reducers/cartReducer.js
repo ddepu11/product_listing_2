@@ -1,4 +1,9 @@
-import { ADD_TO_CART } from "../actions/cartActions";
+import {
+  ADD_TO_CART,
+  DECREASE_QUANTITY,
+  INCREASE_QUANTITY,
+  CALCULATE_TOTAL,
+} from "../actions/cartActions";
 import productsData from "../data/products.json";
 
 const cartReducer = (state, action) => {
@@ -17,6 +22,40 @@ const cartReducer = (state, action) => {
         ],
       };
 
+    case INCREASE_QUANTITY:
+      return {
+        ...state,
+        cartItems: [
+          ...state.cartItems.map((item) => {
+            if (item.id === action.payload) {
+              item.quantity++;
+              return item;
+            } else {
+              return item;
+            }
+          }),
+        ],
+      };
+
+    case DECREASE_QUANTITY:
+      return {
+        ...state,
+        cartItems: [
+          ...state.cartItems.map((item) => {
+            if (item.id === action.payload) {
+              item.quantity--;
+              return item;
+            } else {
+              return item;
+            }
+          }),
+        ],
+      };
+
+    case CALCULATE_TOTAL:
+      return {
+        ...state,
+      };
     default:
       return { ...state };
   }

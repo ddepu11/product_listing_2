@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { CartContext } from "../Context/cartContext";
 
 const CartItem = ({
   title,
@@ -11,6 +13,8 @@ const CartItem = ({
   id,
   quantity,
 }) => {
+  const { increaseQuantity, decreaseQuantity } = useContext(CartContext);
+
   return (
     <Wrapper className="flex">
       <div className="left">
@@ -35,11 +39,15 @@ const CartItem = ({
       </div>
 
       <div className="right flex">
-        <button>+</button>
+        <button onClick={increaseQuantity} data-id={id}>
+          +
+        </button>
 
         <span>{quantity}</span>
 
-        <button>-</button>
+        <button onClick={decreaseQuantity} data-id={id}>
+          -
+        </button>
       </div>
     </Wrapper>
   );
