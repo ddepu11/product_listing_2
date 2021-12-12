@@ -1,0 +1,125 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Woolen Cap",
+      "price": 218,
+      "brand": "Freaks",
+      "idealFor": ["men", "women"],
+      "soldBy": "Mohan Kumar",
+      "size": "m",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/kgsb1jk0/cap/h/y/g/free-stylish-black-balkalova-cap-fashlook-original-imafwy64umkfsefu.jpeg?q=50"
+    },
+
+    {
+      "id": "2",
+      "title": "Casual Jacket",
+      "price": 509,
+      "brand": "Tripr",
+      "idealFor": ["men"],
+      "soldBy": "Umesh DS",
+      "size": "l",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/krqoknk0/jacket/1/w/d/xxl-trdgynvhdfuljacket-k15-tripr-original-imag5gganntw7xsg.jpeg?q=50"
+    },
+    {
+      "id": "3",
+      "title": "Round neck tshirt",
+      "price": 350,
+      "brand": "Seven Rocks",
+      "idealFor": ["men"],
+      "soldBy": "Sohan Singh",
+      "size": "s",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/kjiwfbk0-0/t-shirt/e/k/s/m-t305-as10yldnwh-seven-rocks-original-imafz2qfvx7tznnn.jpeg?q=50"
+    },
+    {
+      "id": "4",
+      "title": "Cap",
+      "price": 230,
+      "brand": "Amor Mente",
+      "idealFor": ["women", "girls"],
+      "soldBy": "Mohan Kumar",
+      "size": "l",
+      "image": "https://rukminim1.flixcart.com/image/760/912/ki6bgcw0-0/cap/n/4/s/free-grey-men-cap-with-neck-scarf-amormente-original-imafyf335zbpvsdz.jpeg?q=50"
+    },
+    {
+      "id": "5",
+      "title": "Sweat Shirt",
+      "price": 599,
+      "brand": "Amor Mente",
+      "idealFor": ["girls"],
+      "soldBy": "Sohan Singh",
+      "size": "xl",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/j9st5zk0/sweatshirt/z/f/y/l-whomaroon-whoroyalblue-fleximaa-original-imaezgd5usq5z74v.jpeg?q=50"
+    },
+    {
+      "id": "6",
+      "title": "Full Sleeve Sweat Shirt",
+      "price": 690,
+      "brand": "Seven Rocks",
+      "idealFor": ["women"],
+      "soldBy": "Umesh DS",
+      "size": "l",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/kh5607k0/sweatshirt/t/5/p/xl-jb-w02-black-juneberry-original-imafx7v9sudvzxmu.jpeg?q=50"
+    },
+    {
+      "id": "7",
+      "title": "Color Block Men Hooded",
+      "price": 349,
+      "brand": "Seven Rocks",
+      "idealFor": ["women"],
+      "soldBy": "Sohan Singh",
+      "size": "xl",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/kkec4280/t-shirt/b/m/i/l-t345-blwhrd-new-eyebogler-original-imafzr4f7nxecr44.jpeg?q=50"
+    },
+    {
+      "id": "8",
+      "title": "Color Block Men Hooded",
+      "price": 359,
+      "brand": "Seven Rocks",
+      "idealFor": ["men", "boys"],
+      "soldBy": "Sohan Singh",
+      "size": "m",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/kjuby4w0/t-shirt/2/v/a/3xl-t2-seven-rocks-original-imafzbptgchwstcx.jpeg?q=50"
+    },
+    {
+      "id": "9",
+      "title": "Printed Shirt",
+      "price": 296,
+      "brand": "Trijal Fab",
+      "idealFor": ["men", "boys"],
+      "soldBy": "Mohan Kumar",
+      "size": "s",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/ksc46fk0/fabric/o/d/b/no-2-35-m-unstitched-beard01-trijal-fab-original-imag5xcyfztrekcr.jpeg?q=50"
+    },
+    {
+      "id": "10",
+      "title": "Polo T Shirt",
+      "price": 380,
+      "brand": "Trijal Fab",
+      "idealFor": ["boys"],
+      "soldBy": "Sohan Singh",
+      "size": "m",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/kfoapow0-0/t-shirt/d/w/y/xl-t16-seven-rocks-original-imafw2jyyt3bzxda.jpeg?q=50"
+    },
+    {
+      "id": "11",
+      "title": "Women Kurta",
+      "price": 419,
+      "brand": "Freaks",
+      "idealFor": ["women"],
+      "soldBy": "Sohan Singh",
+      "size": "l",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/kv1a4cw0/ethnic-set/w/t/d/xl-turkey-beige-bright-sayera-original-imag8f6ajwqjhw2j.jpeg?q=50"
+    },
+    {
+      "id": "12",
+      "title": "Men & Women Bandana",
+      "price": 125,
+      "brand": "Freaks",
+      "idealFor": ["women", "men"],
+      "soldBy": "Mohan Kumar",
+      "size": "xl",
+      "image": "https://rukminim1.flixcart.com/image/880/1056/knw2v0w0/bandana/8/g/j/na-free-vpc368-voici-na-original-imag2gu53gnmjzc3.jpeg?q=50"
+    }
+  ]
+}
